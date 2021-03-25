@@ -17,12 +17,12 @@ const fs = require('fs')
 // Writing Files
 
 // 1st argument is absolute path 2nd argument is the text that should be replaced and third is the callback function
-// fs.writeFile('./docs/blog1.txt', 'hey king welcome', () => {
-//     console.log('file has been rewritten');
-// });
-// fs.writeFile('./docs/blog2.txt', 'hey king welcome', () => {
-//     console.log('file has been rewritten');
-// });
+fs.writeFile('./docs/blog1.txt', 'hey king welcome', () => {
+    console.log('file has been rewritten');
+});
+fs.writeFile('./docs/notes.txt', 'hey king welcome', () => {
+    console.log('file has been rewritten');
+});
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

@@ -1,0 +1,3 @@
+<-------------------------------------------STREAMS------------------------------------------->
+start using data before it has finished loading 
+it is like buffering in youtube or netflix
