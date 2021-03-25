@@ -1,4 +1,5 @@
 const http = require('http');
+const fs = require('fs');
 
 // Created the server
 const server = http.createServer((req, res) => {
@@ -7,10 +8,17 @@ const server = http.createServer((req, res) => {
     // set header content type
     res.setHeader('Content-Type', 'text/html');
 
-    res.write('<head><link rel="stylesheet" href="#"></head>')
-    res.write('<h1>hello ninja</h1>');
-    res.write('<p>hello dinesh ninja</p>');
-    res.end();
+    fs.readFile('./views/index.html', (err, data) =>{
+        if(err){
+            console.log(err);
+            res.end();
+        }else{
+            //res.write(data);  // if we area sending only one data as response we can ignore this line
+            res.end(data);
+        }
+    })
+
+
 });
 
 // listening to the server
