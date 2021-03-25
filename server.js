@@ -14,7 +14,7 @@ const server = http.createServer((req, res) => {
     switch(req.url){
         case '/':
             path = path+'index.html';
-            
+
             break;
         case '/about':
             path += 'about.html';
@@ -39,6 +39,6 @@ const server = http.createServer((req, res) => {
 
 // listening to the server
 server.listen(3000, 'localhost', () => {
-    console.log('listening for requests on port 3000');
+    console.log('lfor requests on port 3000');
 });
 
