@@ -14,6 +14,7 @@ const server = http.createServer((req, res) => {
     switch(req.url){
         case '/':
             path = path+'index.html';
+            
             break;
         case '/about':
             path += 'about.html';
