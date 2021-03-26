@@ -1,0 +1,26 @@
+{
+  "name": "course",
+  "version": "1.0.0",
+  "description": "",
+  "main": "files.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dinesh4900/node-course.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dinesh4900/node-course/issues"
+  },
+  "homepage": "https://github.com/dinesh4900/node-course#readme",
+  "dependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
