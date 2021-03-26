@@ -10,7 +10,7 @@ const server = http.createServer((req, res) => {
     console.log(num);
 
     const greet = _.once(() => {
-        console.log('hello');
+        console.log('heyy');
     });
 
     greet();
