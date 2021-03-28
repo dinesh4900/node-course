@@ -20,3 +20,14 @@ app.get('/about', (req, res)=>{
     // res.send('<p> hey hello world </p>');
     res.sendFile('./views/about.html', { root: __dirname})
 });
+
+// redirect
+app.get('/about-us', (req, res) => {
+    res.redirect('/about');
+})
+
+// 404 -- it should be at the bottom of the code because if it is in first it acts as default
+ app.use((req, res) => {
+     // express doesnt recognise it is a 404 error so we should give status code to the line
+    res.status(404).sendFile('./views/404.html', { root: __dirname});
+});
