@@ -4,23 +4,23 @@ const _ = require('lodash');
 
 // Created the server
 const server = http.createServer((req, res) => {
-
+  
     // lodash
     const num = _.random(0, 20);
     console.log(num);
 
     const greet = _.once(() => {
-        console.log('heyy');
+        console.log('hello');
     });
-
+  
     greet();
     greet();
-
+  
     // set header content type
     res.setHeader('Content-Type', 'text/html');
-
+  
     let path = './views/';
-
+  
     // Basic Routing 
     switch(req.url){
         case '/':
@@ -55,10 +55,10 @@ const server = http.createServer((req, res) => {
         }
     })
 
-
 });
 
-// listening to the server
+// listening to the server 
+
 server.listen(3000, 'localhost', () => {
     console.log('listening for requests on port 3000');
 });
