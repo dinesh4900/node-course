@@ -1,7 +1,6 @@
 {
   "name": "course",
   "version": "1.0.0",
-  "description": "",
   "main": "files.js",
   "directories": {
     "doc": "docs"
@@ -22,7 +21,8 @@
   "homepage": "https://github.com/dinesh4900/node-course#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "lodash": "^4.17.21",
-    "nodemon": "^2.0.7"
-  }
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {},
+  "description": ""
 }

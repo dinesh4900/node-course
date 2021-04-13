@@ -4,7 +4,8 @@ const express = require('express');
 const app = express();
 
 // listent for requests
-app.listen(3000);
+app.listen(3001);
+console.log("listening");
 
 // respond to req
 // 1st argument is the path and 2nd argument is a function that takes req and response object
@@ -24,6 +25,7 @@ app.get('/about', (req, res)=>{
 // redirect
 app.get('/about-us', (req, res) => {
     res.redirect('/about');
+    console.log("hello world");
 })
 
 // 404 -- it should be at the bottom of the code because if it is in first it acts as default
