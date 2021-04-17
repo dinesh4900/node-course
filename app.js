@@ -14,12 +14,18 @@ console.log("listening");
 // respond to req
 // 1st argument is the path and 2nd argument is a function that takes req and response object
 app.get('/', (req, res)=>{
+
+    const blogs = [
+        {title: 'Dinesh', snippet: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.'},
+        {title: 'Dinesh', snippet: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.'},
+        {title: 'Dinesh', snippet: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.'},
+    ];
     // no need to define status code and content type
     //res.send('<p> hello world </p>');
     // root: __dirname indicates we should give the directory where it is present besacuse it takes it as the absolute path
     // res.sendFile('./views/index.html', { root: __dirname});
 
-    res.render('index');
+    res.render('index', {title: 'Home', blogs});
 });
 
 app.get('/about', (req, res)=>{
@@ -27,11 +33,11 @@ app.get('/about', (req, res)=>{
     // res.send('<p> hey hello world </p>');
     // res.sendFile('./views/about.html', { root: __dirname});
 
-    res.render('about');
+    res.render('about', {title: 'About'});
 });
 
 app.get('/blogs/create', (req, res) =>{
-    res.render('create');
+    res.render('create', {title: 'Create'});
 })
 
 // redirect
@@ -45,5 +51,5 @@ app.get('/blogs/create', (req, res) =>{
      // express doesnt recognise it is a 404 error so we should give status code to the line
      // res.status(404).sendFile('./views/404.html', { root: __dirname});
 
-     res.status(404).render('404');
+     res.status(404).render('404', {title: '404'});
 });
