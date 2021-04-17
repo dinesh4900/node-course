@@ -11,6 +11,14 @@ app.set('view engine', 'ejs');
 app.listen(3000);
 console.log("listening");
 
+app.use((req, res) =>{
+    console.log('new request made');
+    console.log('host : ', req.hostname);
+    console.log('path: ', req.path);
+    console.log('method: ', req.method);
+})
+
+
 // respond to req
 // 1st argument is the path and 2nd argument is a function that takes req and response object
 app.get('/', (req, res)=>{
