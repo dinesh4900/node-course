@@ -1,22 +1,13 @@
 <html>
-    <head>
-        <title>Blog Content | <%= title %></title>
-    </head>
+    <%- include('./partials/head.ejs') %>
     <body>
-        <nav>
-            <div class="site-title">
-                <a href="/"><h1>Blog Ninja</h1></a>
-                <p>Net Ninja</p>
-            </div>
-            <ul>
-                <li><a href="/">Blogs</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/blogs/create">New blogs</a></li>
-            </ul>
-        </nav>
+        <%- include('./partials/nav.ejs') %> 
 
         <div class="not-found content">
-            <h2>no found</h2>
+            <h2>not found</h2>
         </div>
+
+        <%- include('./partials/footer.ejs') %>
+
     </body>
 </html>

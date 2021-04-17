@@ -1,19 +1,8 @@
 <html>
-    <head>
-        <title>Blog Content | <%= title %></title>
-    </head>
+    <%- include('./partials/head.ejs') %>
+
     <body>
-        <nav>
-            <div class="site-title">
-                <a href="/"><h1>Blog Ninja</h1></a>
-                <p>Net Ninja</p>
-            </div>
-            <ul>
-                <li><a href="/">Blogs</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/blogs/create">New blogs</a></li>
-            </ul>
-        </nav>
+        <%- include('./partials/nav.ejs') %> 
 
         <div class="blogs content">
             <h2>All Blogs</h2>
@@ -22,7 +11,12 @@
                     <h3 class="title"><%= blog.title %> </h3>
                     <p class="snippet"><%= blog.snippet %> </p>
                 <% }) %>   
-            <% } %>
+            <% } else { %>
+                    <p>no blogs to display</p>
+                <% } %> 
         </div>
+        
+        <%- include('./partials/footer.ejs') %>
+
     </body>
 </html>

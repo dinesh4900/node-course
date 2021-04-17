@@ -1,20 +1,9 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Blog Content | <%= title %></title>
-    </head>
+    <%- include('./partials/head.ejs') %>
     <body>
-        <nav>
-            <div class="site-title">
-                <a href="/"><h1>Blog Ninja</h1></a>
-                <p>Net Ninja</p>
-            </div>
-            <ul>
-                <li><a href="/">Blogs</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/blogs/create">New blogs</a></li>
-            </ul>
-        </nav>
+
+        <%- include('./partials/nav.ejs') %> 
 
         <div class="about content">
             <h2>About us</h2>
@@ -23,5 +12,7 @@
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime, debitis illum! Repellendus ullam quasi, dolorem, in veniam laborum minima itaque voluptas pariatur hic maxime. Praesentium placeat veritatis tenetur totam recusandae!</p>
 
         </div>
+        <%- include('./partials/footer.ejs') %>
+
     </body>
 </html>
