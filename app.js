@@ -1,4 +1,5 @@
 const express = require('express');
+const morgan = require('morgan');
 
 // express app
 const app = express();
@@ -11,11 +12,20 @@ app.set('view engine', 'ejs');
 app.listen(3000);
 console.log("listening");
 
-app.use((req, res) =>{
+app.use(morgan('dev'));
+
+app.use((req, res, next) =>{
     console.log('new request made');
     console.log('host : ', req.hostname);
     console.log('path: ', req.path);
     console.log('method: ', req.method);
+    next();
+});
+
+app.use((req, res, next) =>{
+    console.log('In the next middleware');
+
+    next();
 })
 
 
