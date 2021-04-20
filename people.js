@@ -6,8 +6,8 @@
 // this export statements represt what is the value of this module when used
 // module.exports = people;
 
-const people =[ 'dinesh', 'king', 'hello']
-const ages= [20, 21,23];
+const people =[ 'dinesh', 'king', 'hello','bye']
+const ages= [20, 21,23, 34];
 
 console.log(people)
 

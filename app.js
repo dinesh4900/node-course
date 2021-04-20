@@ -71,5 +71,6 @@ app.get('/blogs/create', (req, res) =>{
      // express doesnt recognise it is a 404 error so we should give status code to the line
      // res.status(404).sendFile('./views/404.html', { root: __dirname});
 
+     
      res.status(404).render('404', {title: '404'});
 });
