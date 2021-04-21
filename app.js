@@ -41,59 +41,60 @@ app.use(morgan('dev'));
 
 
 // mongoose and sandbox routes
-app.get('/add-blog',(req, res) => {
-    const blog = new Blog({
-        title: 'new blog 3',
-        snippet: 'about new blog',
-        body: 'more features'
-    });
+// app.get('/add-blog',(req, res) => {
+//     const blog = new Blog({
+//         title: 'new blog 3',
+//         snippet: 'about new blog',
+//         body: 'more features'
+//     });
 
-    blog.save()
-    .then((result)=> {
-        res.send(result);
-    })
-    .catch((err) => {
-        console.log(err);
-    });
-});
+//     blog.save()
+//     .then((result)=> {
+//         res.send(result);
+//     })
+//     .catch((err) => {
+//         console.log(err);
+//     });
+// });
 
-app.get('/all-blogs', (req, res) => {
-    Blog.find()
-    .then((result)=> {
-        res.send(result);
-    })
-    .catch((err) => {
-        console.log(err);
-    });
+// app.get('/all-blogs', (req, res) => {
+//     Blog.find()
+//     .then((result)=> {
+//         res.send(result);
+//     })
+//     .catch((err) => {
+//         console.log(err);
+//     });
 
-})
+// })
 
-app.get('/single-blog', (req, res)=>{
-    Blog.findById('6080064692ddba28e7266967')
-    .then((result)=> {
-        res.send(result);
-    })
-    .catch((err) => {
-        console.log(err);
-    });
-})
+// app.get('/single-blog', (req, res)=>{
+//     Blog.findById('6080064692ddba28e7266967')
+//     .then((result)=> {
+//         res.send(result);
+//     })
+//     .catch((err) => {
+//         console.log(err);
+//     });
+// })
 
 // respond to req
 // 1st argument is the path and 2nd argument is a function that takes req and response object
 app.get('/', (req, res)=>{
 
-    const blogs = [
-        {title: 'Dinesh', snippet: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.'},
-        {title: 'Dinesh', snippet: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.'},
-        {title: 'Dinesh', snippet: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.'},
-    ];
-    // no need to define status code and content type
-    //res.send('<p> hello world </p>');
-    // root: __dirname indicates we should give the directory where it is present besacuse it takes it as the absolute path
-    // res.sendFile('./views/index.html', { root: __dirname});
+//     const blogs = [
+//         {title: 'Dinesh', snippet: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.'},
+//         {title: 'Dinesh', snippet: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.'},
+//         {title: 'Dinesh', snippet: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.'},
+//     ];
+//     // no need to define status code and content type
+//     //res.send('<p> hello world </p>');
+//     // root: __dirname indicates we should give the directory where it is present besacuse it takes it as the absolute path
+//     // res.sendFile('./views/index.html', { root: __dirname});
+//     res.render('index', {title: 'Home', blogs});
 
-    res.render('index', {title: 'Home', blogs});
-});
+    res.redirect('/blogs');
+ });
 
 app.get('/about', (req, res)=>{
     // no need to define status code and content type
@@ -102,6 +103,16 @@ app.get('/about', (req, res)=>{
 
     res.render('about', {title: 'About'});
 });
+
+app.get('/blogs', (req, res) => {
+    Blog.find().sort({ createdAt: -1})
+    .then((result) => {
+        res.render('index', {title: 'all blogs', blogs: result})
+    })
+    .catch((err) => {
+        console.log(err);
+    })
+})
 
 app.get('/blogs/create', (req, res) =>{
     res.render('create', {title: 'Create'});
