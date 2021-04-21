@@ -1,8 +1,8 @@
 const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
-
-
+const Blog = require('./models/blogs');
+const { result } = require('lodash');
 
 // express app
 const app = express();
@@ -25,20 +25,58 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(morgan('dev'));
 
-app.use((req, res, next) =>{
-    console.log('new request made');
-    console.log('host : ', req.hostname);
-    console.log('path: ', req.path);
-    console.log('method: ', req.method);
-    next();
+// app.use((req, res, next) =>{
+//     console.log('new request made');
+//     console.log('host : ', req.hostname);
+//     console.log('path: ', req.path);
+//     console.log('method: ', req.method);
+//     next();
+// });
+
+// app.use((req, res, next) =>{
+//     console.log('In the next middleware');
+
+//     next();
+// })
+
+
+// mongoose and sandbox routes
+app.get('/add-blog',(req, res) => {
+    const blog = new Blog({
+        title: 'new blog 3',
+        snippet: 'about new blog',
+        body: 'more features'
+    });
+
+    blog.save()
+    .then((result)=> {
+        res.send(result);
+    })
+    .catch((err) => {
+        console.log(err);
+    });
 });
 
-app.use((req, res, next) =>{
-    console.log('In the next middleware');
+app.get('/all-blogs', (req, res) => {
+    Blog.find()
+    .then((result)=> {
+        res.send(result);
+    })
+    .catch((err) => {
+        console.log(err);
+    });
 
-    next();
 })
 
+app.get('/single-blog', (req, res)=>{
+    Blog.findById('6080064692ddba28e7266967')
+    .then((result)=> {
+        res.send(result);
+    })
+    .catch((err) => {
+        console.log(err);
+    });
+})
 
 // respond to req
 // 1st argument is the path and 2nd argument is a function that takes req and response object
