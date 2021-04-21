@@ -1,16 +1,25 @@
 const express = require('express');
 const morgan = require('morgan');
+const mongoose = require('mongoose');
+
+
 
 // express app
 const app = express();
+
+
+const dbURI = 'mongodb+srv://king4900:iloveyou4900@nodejs.wqi5k.mongodb.net/node-king?retryWrites=true&w=majority'
+mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true})
+    .then((result) => app.listen(3000))
+    .catch((err) => console.log(err))
 
 // register view engines
 app.set('view engine', 'ejs');
 // app.set('views', 'myviews')  //setting view path
 
 // listent for requests
-app.listen(3000);
-console.log("listening");
+// app.listen(3000);
+// console.log("listening");
 
 // middleware and static files
 app.use(express.static('public'));
